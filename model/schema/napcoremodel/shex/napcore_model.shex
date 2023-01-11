@@ -1,0 +1,62 @@
+BASE <https://w3id.org/nap/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX linkml: <https://w3id.org/linkml/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+
+<https://w3id.org/napKind> vcard:Kind
+
+<https://w3id.org/napLiteral> rdfs:Literal
+
+linkml:String xsd:string
+
+linkml:Integer xsd:integer
+
+linkml:Boolean xsd:boolean
+
+linkml:Float xsd:float
+
+linkml:Double xsd:double
+
+linkml:Decimal xsd:decimal
+
+linkml:Time xsd:dateTime
+
+linkml:Date xsd:date
+
+linkml:Datetime xsd:dateTime
+
+linkml:DateOrDatetime linkml:DateOrDatetime
+
+linkml:Uriorcurie IRI
+
+linkml:Uri IRI
+
+linkml:Ncname xsd:string
+
+linkml:Objectidentifier IRI
+
+linkml:Nodeidentifier NONLITERAL
+
+<https://w3id.org/napCatalogueRecord> CLOSED {
+    (  $<https://w3id.org/napCatalogueRecord_tes> (  xsd:dateTime @linkml:String ? ;
+          dcterms:language @linkml:String * ;
+          dcat:contactPoint @<https://w3id.org/napKind>
+       ) ;
+       rdf:type [ dcat:CatalogRecord ] ?
+    )
+}
+
+<https://w3id.org/napNapMetadata> CLOSED {
+    (  $<https://w3id.org/napNapMetadata_tes> (  dcat:title @<https://w3id.org/napLiteral> ? ;
+          dcat:contactPoint @<https://w3id.org/napKind>
+       ) ;
+       rdf:type [ dcat:Catalog ]
+    )
+}
+
+

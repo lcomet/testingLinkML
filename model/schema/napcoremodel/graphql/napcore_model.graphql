@@ -1,0 +1,14 @@
+type CatalogueRecord
+  {
+    date: String
+    language: [String]
+    pointOfContact: Kind!
+  }
+
+type NapMetadata
+  {
+    uid: Literal!
+    name: Literal
+    pointOfContact: Kind!
+  }
+

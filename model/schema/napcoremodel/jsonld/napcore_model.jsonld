@@ -1,0 +1,405 @@
+{
+  "name": "NAP",
+  "title": "Initial NAP model to test documentation of the schema",
+  "id": "https://w3id.org/napcore/model",
+  "version": "0.0.1",
+  "imports": [
+    "linkml:types"
+  ],
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "prefixes": [
+    {
+      "prefix_prefix": "vcard",
+      "prefix_reference": "http://www.w3.org/2006/vcard/ns#"
+    },
+    {
+      "prefix_prefix": "foaf",
+      "prefix_reference": "http://xmlns.com/foaf/0.1/"
+    },
+    {
+      "prefix_prefix": "vann",
+      "prefix_reference": "http://purl.org/vocab/vann/"
+    },
+    {
+      "prefix_prefix": "dcat",
+      "prefix_reference": "http://www.w3.org/ns/dcat#"
+    },
+    {
+      "prefix_prefix": "dct",
+      "prefix_reference": "http://purl.org/dc/terms/"
+    },
+    {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    {
+      "prefix_prefix": "nap",
+      "prefix_reference": "https://w3id.org/nap"
+    }
+  ],
+  "emit_prefixes": [
+    "rdf",
+    "rdfs",
+    "xsd",
+    "skos"
+  ],
+  "default_curi_maps": [
+    "semweb_context"
+  ],
+  "default_prefix": "nap",
+  "default_range": "string",
+  "types": [
+    {
+      "name": "kind",
+      "definition_uri": "https://w3id.org/napKind",
+      "description": "type of objects to be represented by a vcard, same as vcard:Kind",
+      "from_schema": "https://w3id.org/napcore/model",
+      "typeof": "uriorcurie",
+      "base": "URIorCURIE",
+      "uri": "http://www.w3.org/2006/vcard/ns#Kind",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "literal",
+      "definition_uri": "https://w3id.org/napLiteral",
+      "description": "literal values, same as rdfs:Literal",
+      "from_schema": "https://w3id.org/napcore/model",
+      "typeof": "uriorcurie",
+      "base": "URIorCURIE",
+      "uri": "http://www.w3.org/2000/01/rdf-schema#Literal",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "string",
+      "definition_uri": "https://w3id.org/linkml/String",
+      "description": "A character string",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "integer",
+      "definition_uri": "https://w3id.org/linkml/Integer",
+      "description": "An integer",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "int",
+      "uri": "http://www.w3.org/2001/XMLSchema#integer",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "boolean",
+      "definition_uri": "https://w3id.org/linkml/Boolean",
+      "description": "A binary (true or false) value",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "Bool",
+      "uri": "http://www.w3.org/2001/XMLSchema#boolean",
+      "repr": "bool",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "float",
+      "definition_uri": "https://w3id.org/linkml/Float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#float",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "double",
+      "definition_uri": "https://w3id.org/linkml/Double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#double",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "decimal",
+      "definition_uri": "https://w3id.org/linkml/Decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "Decimal",
+      "uri": "http://www.w3.org/2001/XMLSchema#decimal",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "time",
+      "definition_uri": "https://w3id.org/linkml/Time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "XSDTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "date",
+      "definition_uri": "https://w3id.org/linkml/Date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "XSDDate",
+      "uri": "http://www.w3.org/2001/XMLSchema#date",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "datetime",
+      "definition_uri": "https://w3id.org/linkml/Datetime",
+      "description": "The combination of a date and time",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "XSDDateTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "date_or_datetime",
+      "definition_uri": "https://w3id.org/linkml/DateOrDatetime",
+      "description": "Either a date or a datetime",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "https://w3id.org/linkml/DateOrDatetime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uriorcurie",
+      "definition_uri": "https://w3id.org/linkml/Uriorcurie",
+      "description": "a URI or a CURIE",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "URIorCURIE",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uri",
+      "definition_uri": "https://w3id.org/linkml/Uri",
+      "description": "a complete URI",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "URI",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "ncname",
+      "definition_uri": "https://w3id.org/linkml/Ncname",
+      "description": "Prefix part of CURIE",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NCName",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "objectidentifier",
+      "definition_uri": "https://w3id.org/linkml/Objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "comments": [
+        "Used for inheritence and type checking"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "ElementIdentifier",
+      "uri": "http://www.w3.org/ns/shex#iri",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "nodeidentifier",
+      "definition_uri": "https://w3id.org/linkml/Nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NodeIdentifier",
+      "uri": "http://www.w3.org/ns/shex#nonLiteral",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    }
+  ],
+  "enums": [
+    {
+      "name": "Obligation",
+      "definition_uri": "https://w3id.org/napObligation",
+      "from_schema": "https://w3id.org/napcore/model",
+      "permissible_values": [
+        {
+          "text": "Mandatory"
+        },
+        {
+          "text": "Recommended"
+        },
+        {
+          "text": "Optional"
+        }
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "uid",
+      "definition_uri": "https://w3id.org/napuid",
+      "from_schema": "https://w3id.org/napcore/model",
+      "mappings": [
+        "http://purl.org/dc/terms/identifier"
+      ],
+      "slot_uri": "http://purl.org/dc/terms/identifier",
+      "identifier": true,
+      "owner": "NapMetadata",
+      "domain_of": [
+        "NapMetadata"
+      ],
+      "range": "literal",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "name",
+      "definition_uri": "https://w3id.org/napname",
+      "from_schema": "https://w3id.org/napcore/model",
+      "mappings": [
+        "http://www.w3.org/ns/dcat#title"
+      ],
+      "slot_uri": "http://www.w3.org/ns/dcat#title",
+      "owner": "NapMetadata",
+      "domain_of": [
+        "NapMetadata"
+      ],
+      "range": "literal",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pointOfContact",
+      "definition_uri": "https://w3id.org/nappointOfContact",
+      "from_schema": "https://w3id.org/napcore/model",
+      "mappings": [
+        "http://www.w3.org/ns/dcat#contactPoint"
+      ],
+      "slot_uri": "http://www.w3.org/ns/dcat#contactPoint",
+      "owner": "CatalogueRecord",
+      "domain_of": [
+        "NapMetadata",
+        "CatalogueRecord"
+      ],
+      "range": "kind",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "date",
+      "definition_uri": "https://w3id.org/napdate",
+      "from_schema": "https://w3id.org/napcore/model",
+      "mappings": [
+        "http://www.w3.org/2001/XMLSchema#dateTime"
+      ],
+      "slot_uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "owner": "CatalogueRecord",
+      "domain_of": [
+        "CatalogueRecord"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "language",
+      "definition_uri": "https://w3id.org/naplanguage",
+      "from_schema": "https://w3id.org/napcore/model",
+      "mappings": [
+        "http://purl.org/dc/terms/language"
+      ],
+      "slot_uri": "http://purl.org/dc/terms/language",
+      "multivalued": true,
+      "owner": "CatalogueRecord",
+      "domain_of": [
+        "CatalogueRecord"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "usageNote",
+      "definition_uri": "https://w3id.org/napusageNote",
+      "description": "Indication of the use of the metadata. Possible values Mandatory, Recommended, Optional",
+      "from_schema": "https://w3id.org/napcore/model",
+      "mappings": [
+        "http://purl.org/vocab/vann/usageNote"
+      ],
+      "slot_uri": "http://purl.org/vocab/vann/usageNote",
+      "range": "Obligation",
+      "@type": "SlotDefinition"
+    }
+  ],
+  "classes": [
+    {
+      "name": "NapMetadata",
+      "definition_uri": "https://w3id.org/napNapMetadata",
+      "description": "Metadata about the NAP (national access point) itself",
+      "from_schema": "https://w3id.org/napcore/model",
+      "mappings": [
+        "dcat:Catalog"
+      ],
+      "slots": [
+        "uid",
+        "name",
+        "pointOfContact"
+      ],
+      "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/dcat#Catalog",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CatalogueRecord",
+      "definition_uri": "https://w3id.org/napCatalogueRecord",
+      "description": "Metadata about the metadata entry in a NAP",
+      "from_schema": "https://w3id.org/napcore/model",
+      "mappings": [
+        "dcat:CatalogRecord"
+      ],
+      "slots": [
+        "date",
+        "language",
+        "pointOfContact"
+      ],
+      "slot_usage": {},
+      "class_uri": "http://www.w3.org/ns/dcat#CatalogRecord",
+      "@type": "ClassDefinition"
+    }
+  ],
+  "metamodel_version": "1.7.0",
+  "source_file": "napcore_model.yaml",
+  "source_file_date": "2023-01-11T12:38:28",
+  "source_file_size": 2361,
+  "generation_date": "2023-01-11T12:38:36",
+  "@type": "SchemaDefinition",
+  "@context": [
+    "napcoremodel//jsonld/napcore_model.context.jsonld",
+    "https://w3id.org/linkml/types.context.jsonld",
+    {
+      "@base": "https://w3id.org/nap"
+    }
+  ]
+}

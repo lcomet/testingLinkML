@@ -1,0 +1,65 @@
+{
+    "$defs": {
+        "CatalogueRecord": {
+            "additionalProperties": false,
+            "description": "Metadata about the metadata entry in a NAP",
+            "properties": {
+                "date": {
+                    "type": "string"
+                },
+                "language": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "pointOfContact": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "pointOfContact"
+            ],
+            "title": "CatalogueRecord",
+            "type": "object"
+        },
+        "NapMetadata": {
+            "additionalProperties": false,
+            "description": "Metadata about the NAP (national access point) itself",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "pointOfContact": {
+                    "type": "string"
+                },
+                "uid": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "uid",
+                "pointOfContact"
+            ],
+            "title": "NapMetadata",
+            "type": "object"
+        },
+        "Obligation": {
+            "description": "",
+            "enum": [
+                "Mandatory",
+                "Recommended",
+                "Optional"
+            ],
+            "title": "Obligation",
+            "type": "string"
+        }
+    },
+    "$id": "https://w3id.org/napcore/model",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": true,
+    "metamodel_version": "1.7.0",
+    "title": "NAP",
+    "type": "object",
+    "version": "0.0.1"
+}
