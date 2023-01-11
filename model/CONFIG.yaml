@@ -1,14 +1,15 @@
-model_organization:           # Name of github individual / organization where this clone exists (e.g. linkml / mygithub)
-model_name:                   # Name of target repository (e.g. my-wonderful-model)
-root_schema: sample_model     # Name of the base schema file (w/o .yaml)
-model_root_class: Person      # Name of the base class in the schema for testing
+model_organization:   FIT        # Name of github individual / organization where this clone exists (e.g. linkml / mygithub)
+model_name:   testingLinkML      # Name of target repository (e.g. my-wonderful-model)
+root_schema: napcore_model     # Name of the base schema file (w/o .yaml)
+model_root_class: Nap      # Name of the base class in the schema for testing
 
-model_author:                 # Your name
-model_author_email:           # Your email
-model_synopsis: A cool model  # One liner about the model
+model_author:                 Lina Molinas Comet
+model_author_email:           lina.teresa.molinas.comet@fit.fraunhofer.de
+model_synopsis: Conceptual Model of the NAPCORE Project metadata # One liner about the model
 model_description: |-         # Longer description of the model
-  This is a really nice model that
-  does stuff
+  The main objective is to develop a “napDCAT-AP” specification, being an RDF-compatible
+representation of an agreed, Europe-wide metadata set for NAPS, based on the Coordinated
+Metadata Catalogue (CMC), and parallel DCAT-AP specifications.
 
 # Trove Classifiers (https://pypi.org/classifiers/) -- these can be omitted if the elements below are sufficient
 classifiers:
@@ -29,14 +30,13 @@ keywords: [linkml, LOD, Modeling, Linked open data, model]
 # Schema formats to be generated
 # See: [ https://github.com/linkml/linkml/generators/README.md ] for examples of outputs
 # Possible values:
-#   graphql -- graphql schema for the model
-#   json -- LinkML model definition in JSON syntax
-#   jsonld_context -- JSON-LD context definitions for model
-#   json_schema -- Model schema in json schema
-#   owl -- OWL representation of model schema
-#   rdf -- LinkML Model definition in RDF
-#   shex -- LinkML model definition in ShEx
-#   sqlddl -- SQL ddl of the model
+   # graphql -- graphql schema for the model
+   # json -- LinkML model definition in JSON syntax
+   # jsonld_context -- JSON-LD context definitions for model
+   # json_schema -- Model schema in json schema
+   # owl -- OWL representation of model schema
+   # rdf -- LinkML Model definition in RDF
+   # shex -- LinkML model definition in ShEx
+   # sqlddl -- SQL ddl of the model
 #   model -- copy model/schema to distribution directory
-generate: [jsonld_context, json_schema, model]
-
+generate: [jsonld_context, json_schema, model, graphql, owl, rdf, shex, shacl]
