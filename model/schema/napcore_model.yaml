@@ -8,8 +8,8 @@ prefixes:
  vcard: http://www.w3.org/2006/vcard/ns#
  foaf: http://xmlns.com/foaf/0.1/
  vann: http://purl.org/vocab/vann/
- dcat: 'http://www.w3.org/ns/dcat#'
- dct: 'http://purl.org/dc/terms/'
+ dcat: http://www.w3.org/ns/dcat#
+ dct: http://purl.org/dc/terms/
  #schema: http://schema.org/
  linkml: https://w3id.org/linkml/
  nap: https://w3id.org/nap
@@ -43,6 +43,10 @@ types:
 
 # Definition of Classes
 classes:
+  NAPCORE:
+    class_uri: dct:Agent, foaf:Organization 
+    foaf:homepage <https://napcore.eu> ;
+    rdfs:label "National Access Point Coordination Organisation for Europe"
   NapMetadata:
    description: Metadata about the NAP (national access point) itself
    class_uri: dcat:Catalog
