@@ -1,0 +1,22 @@
+{
+   "dcat": "http://www.w3.org/ns/dcat#",
+   "dct": "http://purl.org/dc/terms/",
+   "foaf": "http://xmlns.com/foaf/0.1/",
+   "linkml": "https://w3id.org/linkml/",
+   "nap": "https://w3id.org/nap",
+   "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+   "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+   "skos": "http://example.org/UNKNOWN/skos/",
+   "vann": "http://purl.org/vocab/vann/",
+   "vcard": "http://www.w3.org/2006/vcard/ns#",
+   "xsd": "http://www.w3.org/2001/XMLSchema#",
+   "CatalogueRecord": {
+      "@id": "dcat:CatalogRecord"
+   },
+   "NAPCORE": {
+      "@id": "foaf:Organization"
+   },
+   "NapMetadata": {
+      "@id": "dcat:Catalog"
+   }
+}

@@ -1,0 +1,14 @@
+// Metadata about the metadata entry in a NAP
+message CatalogueRecord
+ {
+  string date = 0
+ repeated  string language = 0
+  kind pointOfContact = 0
+ }
+// Metadata about the NAP (national access point) itself
+message NapMetadata
+ {
+  literal uid = 0
+  literal name = 0
+  kind pointOfContact = 0
+ }

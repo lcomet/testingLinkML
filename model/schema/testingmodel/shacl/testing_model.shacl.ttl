@@ -1,0 +1,44 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dcat:Catalog a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "Metadata about the NAP (national access point) itself" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path dct:identifier ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path dcat:contactPoint ],
+        [ sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path dcat:title ] ;
+    sh:targetClass dcat:Catalog .
+
+dcat:CatalogRecord a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "Metadata about the metadata entry in a NAP" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path dcat:contactPoint ],
+        [ sh:order 1 ;
+            sh:path dct:language ],
+        [ sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path xsd:dateTime ] ;
+    sh:targetClass dcat:CatalogRecord .
+
+foaf:Organization a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass foaf:Organization .
+

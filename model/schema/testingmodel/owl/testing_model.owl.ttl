@@ -1,0 +1,151 @@
+@prefix IAO: <http://purl.obolibrary.org/obo/IAO_> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix nap: <https://w3id.org/nap> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+linkml:SubsetDefinition a owl:Class ;
+    rdfs:label "subset_definition" .
+
+linkml:topValue a owl:DatatypeProperty ;
+    rdfs:label "value" .
+
+<https://w3id.org/napcore/model> a owl:Ontology ;
+    rdfs:label "NAP" ;
+    IAO:0000700 nap:CatalogueRecord,
+        nap:NAPCORE,
+        nap:NapMetadata ;
+    dct:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
+    dct:title "Initial NAP model to test documentation of the schema" ;
+    pav:version "0.0.1" ;
+    linkml:generation_date "2023-11-14T11:12:56" ;
+    linkml:metamodel_version "1.7.0" ;
+    linkml:source_file "testing_model.yaml" ;
+    linkml:source_file_date "2023-11-14T10:18:10" ;
+    linkml:source_file_size 2392 .
+
+vann:usageNote a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "usageNote" ;
+    rdfs:range nap:Obligation ;
+    skos:definition "Indication of the use of the metadata. Possible values Mandatory, Recommended, Optional" ;
+    skos:exactMatch vann:usageNote .
+
+nap:CatalogueRecord a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "CatalogueRecord" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass nap:Kind ;
+            owl:onProperty dcat:contactPoint ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty xsd:dateTime ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty dct:language ] ;
+    skos:definition "Metadata about the metadata entry in a NAP" ;
+    skos:exactMatch dcat:CatalogRecord .
+
+nap:NAPCORE a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "NAPCORE" ;
+    skos:exactMatch foaf:Organization .
+
+nap:NapMetadata a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "NapMetadata" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass nap:Literal ;
+            owl:onProperty dcat:title ],
+        [ a owl:Restriction ;
+            owl:onClass nap:Kind ;
+            owl:onProperty dcat:contactPoint ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass nap:Literal ;
+            owl:onProperty dct:identifier ;
+            owl:qualifiedCardinality 1 ] ;
+    skos:definition "Metadata about the NAP (national access point) itself" ;
+    skos:exactMatch dcat:Catalog .
+
+dct:identifier a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "uid" ;
+    rdfs:range nap:Literal ;
+    skos:exactMatch dct:identifier .
+
+dct:language a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "language" ;
+    rdfs:range linkml:String ;
+    skos:exactMatch dct:language .
+
+xsd:dateTime a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "date" ;
+    rdfs:range linkml:String ;
+    skos:exactMatch xsd:dateTime .
+
+dcat:title a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "name" ;
+    rdfs:range nap:Literal ;
+    skos:exactMatch dcat:title .
+
+linkml:TypeDefinition a owl:Class ;
+    rdfs:label "type_definition" .
+
+<https://w3id.org/napObligation#Mandatory> a owl:Class,
+        nap:Obligation ;
+    rdfs:label "Mandatory" .
+
+<https://w3id.org/napObligation#Optional> a owl:Class,
+        nap:Obligation ;
+    rdfs:label "Optional" .
+
+<https://w3id.org/napObligation#Recommended> a owl:Class,
+        nap:Obligation ;
+    rdfs:label "Recommended" .
+
+dcat:contactPoint a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "pointOfContact" ;
+    rdfs:range nap:Kind ;
+    skos:exactMatch dcat:contactPoint .
+
+linkml:ClassDefinition a owl:Class ;
+    rdfs:label "class_definition" .
+
+nap:Kind a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "kind" ;
+    rdfs:subClassOf linkml:Uriorcurie .
+
+nap:Literal a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "literal" ;
+    rdfs:subClassOf linkml:Uriorcurie .
+
+nap:Obligation a owl:Class,
+        linkml:EnumDefinition ;
+    rdfs:label "Obligation" ;
+    owl:unionOf ( <https://w3id.org/napObligation#Mandatory> <https://w3id.org/napObligation#Recommended> <https://w3id.org/napObligation#Optional> ) ;
+    linkml:permissible_values <https://w3id.org/napObligation#Mandatory>,
+        <https://w3id.org/napObligation#Optional>,
+        <https://w3id.org/napObligation#Recommended> .
+
+linkml:SlotDefinition a owl:Class ;
+    rdfs:label "slot_definition" .
+
+
